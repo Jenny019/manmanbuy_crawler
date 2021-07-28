@@ -137,11 +137,11 @@ def 抓取一条数据(dt, index=0, link='https://item.jd.com/10429555538.html')
 
     dt.loc[index] = {
         "品牌": product.siteName, "名称": product.spName, "链接": product.spUrl,
-        "25时间": str(二十五月_min.date), "25价格": str(二十五月_min.price), "25条件": str(二十五月_min.condition),
-        "90时间": str(九十天_min.date), "90价格": str(九十天_min.price), "90条件": str(九十天_min.condition),
-        "60时间": str(六十天_min.date), "60价格": str(六十天_min.price), "60条件": str(六十天_min.condition),
-        "30时间": str(三十天_min.date), "30价格": str(三十天_min.price), "30条件": str(三十天_min.condition),
-        "当前时间": str(今天_min.date), "当前价格": str(今天_min.price), "当前条件": str(今天_min.condition),
+        "25时间": 二十五月_min.date, "25价格": 二十五月_min.price, "25条件": 二十五月_min.condition,
+        "90时间": 九十天_min.date, "90价格": 九十天_min.price, "90条件": 九十天_min.condition,
+        "60时间": 六十天_min.date, "60价格": 六十天_min.price, "60条件": 六十天_min.condition,
+        "30时间": 三十天_min.date, "30价格": 三十天_min.price, "30条件": 三十天_min.condition,
+        "当前时间": 今天_min.date, "当前价格": 今天_min.price, "当前条件": 今天_min.condition,
     }
 
 
