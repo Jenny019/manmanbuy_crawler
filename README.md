@@ -111,9 +111,13 @@ if __name__ == '__main__':
 尝试通过 Base64 去反编译加密后的字符串，发现解析错误。
 
 ```python
->>> from util import decode_basic_auth_str                                                                          
->>> decode_basic_auth_str('D8DD2812A942776AF9ED750C2D6D7539BF204F7C0B0FB414E6CEBD28536A99D07304FA7BFFBB2BDD6B9B46823A9D19FA751316693F17DD79FF26D70E2EBA1BF31918AB09FC305FCFF5CC0120F0A255CA5D37BDC0EBFFB3CD')   
->>> UnicodeDecodeError: 'utf-8' codec can't decode byte 0xc0 in position 1: invalid start byte
+>> > from main import decode_basic_auth_str
+>> > decode_basic_auth_str(
+    'D8DD2812A942776AF9ED750C2D6D7539BF204F7C0B0FB414E6CEBD28536A99D07304FA7BFFBB2BDD6B9B46823A9D19FA751316693F17DD79FF26D70E2EBA1BF31918AB09FC305FCFF5CC0120F0A255CA5D37BDC0EBFFB3CD')
+>> > UnicodeDecodeError: 'utf-8'
+codec
+can
+'t decode byte 0xc0 in position 1: invalid start byte
 ```
 
 #### 2. 在线Base编码/解码网站

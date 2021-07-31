@@ -98,12 +98,12 @@ class DatePrice:
         return str(self.date) + ", " + str(self.price) + ", " + str(self.condition)
 
 
-def 抓取一条数据(dt, index=0, link='https://item.jd.com/10429555538.html'):
+def 抓取一条数据(dt, cookie, index=0, link='https://item.jd.com/10429555538.html'):
     data = create_form_data(link, 'c5c3f201a8e8fc634d37a766a0299218')
     basic_auth = create_auth()
     resp = requests.post("http://tool.manmanbuy.com/api.ashx", data=data, headers={
         "Authorization": basic_auth,
-        "Cookie": "_ga=GA1.2.1421398516.1626761502; ASP.NET_SessionId=eesmjbx0isiceg11l1wkpfnn; 60014_mmbuser=B1cHU1EEXW0EVVUFVAVbVFANUFIAAQBUVgADBQIGBg9VBgRWCFQBUA%3d%3d; amvid=91195b2d8555f89124ed0e38b001809b; Hm_lvt_85f48cee3e51cd48eaba80781b243db3=1626761511,1626761511,1627504122; Hm_lpvt_85f48cee3e51cd48eaba80781b243db3=1627504122; Hm_lvt_01a310dc95b71311522403c3237671ae=1627180456,1627181484,1627189017,1627504122; Hm_lpvt_01a310dc95b71311522403c3237671ae=1627504122; _gid=GA1.2.201554062.1627504124; _gat_gtag_UA_145348783_1=1",
+        "Cookie": cookie,
         "Host": "tool.manmanbuy.com",
         "Origin": "http://tool.manmanbuy.com",
         "Referer": "http://tool.manmanbuy.com/historylowest.aspx",
@@ -156,7 +156,16 @@ if __name__ == '__main__':
                                "30时间", "30价格", "30条件",
                                "当前时间", "当前价格", "当前条件",
                                ])
-    for i in range(0, 1):
-        抓取一条数据(dt=dt, index=i)
+
+    with open('config', 'r') as f:
+        cookie = f.readline()
+        f.close()
+
+    with open('urls.txt', 'r') as f:
+        i = 0
+        for line in f.readlines():
+            抓取一条数据(dt=dt, cookie=cookie, index=i, link=line)
+            i += 1
+        f.close()
 
     dt.to_excel("1.xlsx")
