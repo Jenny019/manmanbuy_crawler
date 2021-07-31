@@ -164,8 +164,14 @@ if __name__ == '__main__':
     with open('urls.txt', 'r') as f:
         i = 0
         for line in f.readlines():
-            抓取一条数据(dt=dt, cookie=cookie, index=i, link=line)
+            try:
+                抓取一条数据(dt=dt, cookie=cookie, index=i, link=line)
+            except Exception as e:
+                dt.loc[i] = {
+
+                }
             i += 1
+            time.sleep(2)
         f.close()
 
     dt.to_excel("1.xlsx")
