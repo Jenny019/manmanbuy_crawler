@@ -10,7 +10,7 @@ import ast
 import requests
 from dateutil.relativedelta import relativedelta
 import pandas as pd
-
+import random
 
 def get_basic_auth_str(username, password):
     temp_str = username + ':' + password
@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
                 }
             i += 1
-            time.sleep(2)
+            time.sleep(random.randint(8, 15))
         f.close()
 
-    dt.to_excel("1.xlsx")
+    dt.to_excel(str(datetime.now()).replace(":", "_") + ".xlsx")
