@@ -1,4 +1,4 @@
-
+// 注释
 var window = undefined;
 var encode_version = 'jsjiami.com.v5',
 	nljdj = '__0xa3e63',
